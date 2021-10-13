@@ -13,6 +13,7 @@
   <h1>{post.subject}</h1>
   <h2>{post.details}</h2>
   <Link to="/"><button>Back to Main</button></Link>
+  <Link to={"/edit/" + post.id}><button>Edit the Todo</button></Link>
 </div>
 
 <style>
