@@ -7,7 +7,7 @@
 
   export let url = ""; // prop for router to url
   let todos; // variable to hold todo
-  let baseURL = "https://api.herokuapp.com/todos/"; //api url
+  let baseURL = "http://localhost:8000/todos"; //api url
 
   //function to get todos
   const getTodos = async () => {
@@ -26,13 +26,14 @@
 <Router {url}>
   <div class="app">
     <h1>Our Todos</h1>
+    <Link to="/new"><button>Create a new to-do</button></Link>
     <main>
       <Route path="/post/:id" let:params
         ><SinglePost {todos} id={params.id} {getTodos} url={baseURL} /></Route
       >
-      <Route path="/new"><form {todos} url={baseURL} {getTodos} /></Route>
+      <Route path="/new"><Form {todos} url={baseURL} {getTodos} /></Route>
       <Route path="/edit/:id" let:params
-        ><form {todos} id={params.id} url={baseURL} {getTodos} /></Route
+        ><Form {todos} id={params.id} url={baseURL} {getTodos} /></Route
       >
       <Route path="/"><AllPosts {todos} /></Route>
     </main>
