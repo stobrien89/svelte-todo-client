@@ -7,6 +7,17 @@
   export let url; // get url as prop
 
   const post = todos.find((p) => p.id == id);
+
+  // delete todo function
+  const deleteTodo = async () => {
+    await fetch(url + id + "/", {
+      method: "delete",
+    });
+
+    getTodos();
+
+    navigate("/", { replace: true });
+  };
 </script>
 
 <div>
